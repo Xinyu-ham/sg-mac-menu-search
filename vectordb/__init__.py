@@ -1,1 +1,3 @@
-from elastic import ElasticIndex
+from .elastic import Index
+
+__all__ = ['Index']

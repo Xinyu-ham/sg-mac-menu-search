@@ -1,24 +1,29 @@
 from abc import ABC, abstractmethod
 
 class DataType(ABC):
+    @classmethod
     @abstractmethod
-    def map(self):
+    def map(cls):
         pass
 
 class FloatType(DataType):
-    def map(self):
+    @classmethod
+    def map(cls):
         return {'type': 'number'}
     
 class StringType(DataType):
-    def map(self):
+    @classmethod
+    def map(cls):
         return {'type': 'text'}
     
 class KeywordType(DataType):
-    def map(self):
+    @classmethod
+    def map(cls):
         return {'type': 'keyword'}
     
 class SmallEmbeddingType(DataType):
-    def map(self):
+    @classmethod
+    def map(cls):
         return {
             'type': 'dense_vector',
             'dims': 1536,
@@ -27,7 +32,8 @@ class SmallEmbeddingType(DataType):
         }
     
 class LargeEmbeddingType(DataType):
-    def map(self):
+    @classmethod
+    def map(cls):
         return {
             'type': 'dense_vector',
             'dims': 3072,

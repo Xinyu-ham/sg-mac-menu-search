@@ -26,7 +26,7 @@ class Srcaper:
         for div in divs:
             if len(div.find_all('p')) == 3:
                 # Find the name, description and price of the item
-                name, decription, price = (p.text for p in div.find_all('p') if p.text)
+                name, description, price = (p.text for p in div.find_all('p') if p.text)
                 name = self._clean_name(name)
                 price = self._clean_price(price)
                 # Find the img and download it
@@ -34,7 +34,7 @@ class Srcaper:
                 img_file = self._get_img_name(name)
                 self._save_img(img_src, img_file)
 
-                self._append_menu_item(menu_items, seen, name, decription, price, img_file)
+                self._append_menu_item(menu_items, seen, name, description, price, img_file)
         return menu_items
 
     def run(self):
@@ -76,15 +76,14 @@ class Srcaper:
         with open(img_name, 'wb') as f:
             f.write(requests.get(img_src).content)
 
-    def _append_menu_item(self, menu_items: list[dict[str, str | float]], seen: set[str], name: str, decription: str, price: float, img_file: str) -> None:
+    def _append_menu_item(self, menu_items: list[dict[str, str | float]], seen: set[str], name: str, description: str, price: float, img_file: str) -> None:
         if name not in seen:
             seen.add(name)
-            menu_items.append({'name': name, 'decription': decription, 'price': price, 'img': img_file})
-
-
-if __name__ == '__main__':
-    URL = 'https://mcdonaldsmenusg.com/'
-    OUTPUT_FILE = 'data/menu.json'
-    scraper = Srcaper(URL, OUTPUT_FILE, img_dir='images')
-    scraper.run()
+            menu_items.append({'name': name, 'description': description, 'price': price, 'img': img_file})
+    
+    if __name__ == '__main__':
+        URL = 'https://mcdonaldsmenusg.com/'
+        OUTPUT_FILE = 'data/menu.json'
+        scraper = Srcaper(URL, OUTPUT_FILE, img_dir='images')
+        scraper.run()
     

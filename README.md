@@ -59,7 +59,7 @@
     ```
 3. Run the app
     ```bash
-    pyton3 -m main
+    python3 -m main
     ```
 
 ## Details

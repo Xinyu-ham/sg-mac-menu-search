@@ -61,6 +61,7 @@
     ```bash
     python3 -m main
     ```
+4. Go to `http://localhost:8000` in your browser to chat with the bot
 
 ## Details
 The application follows a simple RAG architecture. We first create a database of the menu items by making a scraper, and store the data as documents in a vector database. You can checkout the implementation of the scraper in `scraper.py`.

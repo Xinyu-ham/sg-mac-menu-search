@@ -20,7 +20,7 @@
 ---
 
 <center>
-    <img src="img/eg1.jpeg" width="520" height="800">
+    <img src="img/eg1.jpeg" width="560" height="800">
 </center>
 
 ## Installation

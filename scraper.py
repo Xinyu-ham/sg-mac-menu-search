@@ -4,7 +4,7 @@ import json
 
 
 
-class Srcaper:
+class Scraper:
     def __init__(self, url: str, output_file: str, img_dir: str = 'images'):
         self.url = url
         self.output_file = output_file
@@ -81,9 +81,9 @@ class Srcaper:
             seen.add(name)
             menu_items.append({'name': name, 'description': description, 'price': price, 'img': img_file})
     
-    if __name__ == '__main__':
-        URL = 'https://mcdonaldsmenusg.com/'
-        OUTPUT_FILE = 'data/menu.json'
-        scraper = Srcaper(URL, OUTPUT_FILE, img_dir='images')
-        scraper.run()
+if __name__ == '__main__':
+    URL = 'https://mcdonaldsmenusg.com/'
+    OUTPUT_FILE = 'data/menu.json'
+    scraper = Scraper(URL, OUTPUT_FILE, img_dir='images')
+    scraper.run()
     
